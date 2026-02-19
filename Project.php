@@ -2,7 +2,6 @@
 
 namespace App;
 
-
 use App\Types\ProjectDescription;
 use App\Types\ProjectName;
 
