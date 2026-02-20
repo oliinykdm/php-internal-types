@@ -14,7 +14,6 @@ final readonly class UpdateProjectHandler
 
     public function handle(UpdateProject $command): void
     {
-        // below is just an example, since we have no projectId, it is just for reference
          $project = $this->projectRepository->get($command->getProjectId());
 
         if (!$project) {
