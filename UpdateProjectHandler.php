@@ -4,7 +4,7 @@ namespace App;
 
 use App\CommonTypes\NullableRequiredString;
 use App\CommonTypes\RequiredString;
-use App\Exception\ProjectNotFoundException;
+use App\Exceptions\ProjectNotFoundException;
 
 final readonly class UpdateProjectHandler
 {

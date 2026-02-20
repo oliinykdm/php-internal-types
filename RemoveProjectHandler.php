@@ -2,7 +2,7 @@
 
 namespace App;
 
-use App\Exception\ProjectNotFoundException;
+use App\Exceptions\ProjectNotFoundException;
 
 final readonly class RemoveProjectHandler
 {
