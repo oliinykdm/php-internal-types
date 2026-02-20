@@ -5,6 +5,8 @@ namespace App;
 use App\CommonTypes\NullableRequiredString;
 use App\CommonTypes\RequiredString;
 use App\Exceptions\ProjectNotFoundException;
+use App\Types\ProjectName;
+use App\Types\ProjectDescription;
 
 final readonly class UpdateProjectHandler
 {
@@ -22,13 +24,9 @@ final readonly class UpdateProjectHandler
 
         $updatedProject = new Project(
             $project->getProjectId(),
-            $command->hasName() ? RequiredString::fromString($command->getName()->toString())
+            $command->hasName() ? ProjectName::fromString($command->getName()->toString())
                 : $project->getProjectName(),
-            $command->hasDescription() ? NullableRequiredString::fromNullableString(
-                !$command->getDescription()->isNull()
-                    ? $command->getDescription()->toNullableString()
-                    : NullableRequiredString::createNull()
-            )
+            $command->hasDescription() ? ProjectDescription::fromNullableString($command->getDescription()->toNullableString())
                 : $project->getProjectDescription(),
         );
 
