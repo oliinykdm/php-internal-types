@@ -4,7 +4,7 @@ namespace App;
 
 use App\CommonTypes\NullableRequiredString;
 use App\CommonTypes\RequiredString;
-use LogicException;
+use App\Exception\ProjectNotFoundException;
 
 final readonly class UpdateProjectHandler
 {
@@ -17,7 +17,7 @@ final readonly class UpdateProjectHandler
          $project = $this->projectRepository->get($command->getProjectId());
 
         if (!$project) {
-            throw new LogicException('The project does not exist');
+            throw new ProjectNotFoundException('The project does not exist');
         }
 
         $updatedProject = new Project(
