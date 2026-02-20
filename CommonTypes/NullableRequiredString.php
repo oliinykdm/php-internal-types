@@ -33,7 +33,7 @@ class NullableRequiredString implements Type
 
     }
 
-    public function createNull(): static
+    public static function createNull(): static
     {
         return new static(null);
     }

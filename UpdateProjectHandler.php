@@ -27,7 +27,7 @@ final readonly class UpdateProjectHandler
             $command->hasDescription() ? NullableRequiredString::fromNullableString(
                 !$command->getDescription()->isNull()
                     ? $command->getDescription()->toNullableString()
-                    : ''
+                    : NullableRequiredString::createNull()
             )
                 : $project->getProjectDescription(),
         );
